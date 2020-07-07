@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị các số nguyên tố đầu tiên</title>
+</head>
+<body>
+<input type="text" id="prime">
+<button onclick="check()">Nhập</button>
+<script>
+    function checkPrime(number) {
+        let check = true;
+            if (number <2){
+                 check = false;
+            }
+            else {
+                for (let i = 2; i <= Math.sqrt(number); i++) {
+                    if (number % i === 0){
+                        check = false;
+                        break;
+                    }
+                }
+
+            }
+        return check;
+    }
+    function check() {
+    let number = document.getElementById("prime").value;
+     let count = 0;
+     let i;
+        for (i = 1; i <= 9999; i++) {
+            if (count < number) {
+                if (checkPrime(i)) {
+                count++;
+                console.log(i);
+                    document.write("Số thứ:" + count + "= " + i + "</br>")
+                }
+
+        }
+
+        }
+
+    }
+
+
+</script>
+</body>
+</html>
